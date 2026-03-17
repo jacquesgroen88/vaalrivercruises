@@ -146,13 +146,13 @@ const CruiseDetailsPage = () => {
     const nextImg = () => setActiveImg((i) => (i === cruise.images.length - 1 ? 0 : i + 1));
 
     return (
-        <div className="pt-24 pb-24 min-h-screen bg-zinc-50">
+        <div className="pt-32 pb-24 min-h-screen bg-[#fdfcfb]">
             <div className="max-w-7xl mx-auto px-4">
 
                 {/* Back */}
-                <Link to="/cruises" className="inline-flex items-center gap-2 text-zinc-500 hover:text-primary-600 mb-8 transition-colors">
-                    <ArrowLeft className="w-4 h-4" />
-                    <span className="text-sm font-medium">Back to All Cruises</span>
+                <Link to="/cruises" className="inline-flex items-center gap-2 text-zinc-500 hover:text-primary-600 mb-10 transition-colors">
+                    <ArrowLeft className="w-5 h-5" />
+                    <span className="text-base font-medium">Back to All Cruises</span>
                 </Link>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -160,7 +160,7 @@ const CruiseDetailsPage = () => {
                     {/* Gallery */}
                     <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
                         {/* Main image */}
-                        <div className="relative rounded-2xl overflow-hidden shadow-xl h-[420px] mb-3 group">
+                        <div className="relative rounded-2xl overflow-hidden shadow-xl h-[500px] mb-4 group">
                             <img
                                 key={activeImg}
                                 src={cruise.images[activeImg]}
@@ -179,12 +179,12 @@ const CruiseDetailsPage = () => {
                             </div>
                         </div>
                         {/* Thumbnails */}
-                        <div className="flex gap-2 overflow-x-auto pb-1">
-                            {cruise.images.slice(0, 6).map((img, idx) => (
+                        <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+                            {cruise.images.map((img, idx) => (
                                 <button
                                     key={idx}
                                     onClick={() => setActiveImg(idx)}
-                                    className={`w-16 h-16 rounded-lg overflow-hidden shrink-0 border-2 transition-all ${activeImg === idx ? 'border-primary-500 shadow-md' : 'border-transparent opacity-70 hover:opacity-100'}`}
+                                    className={`w-20 h-20 rounded-lg overflow-hidden shrink-0 border-2 transition-all ${activeImg === idx ? 'border-primary-500 shadow-md scale-95' : 'border-transparent opacity-70 hover:opacity-100'}`}
                                 >
                                     <img src={img} alt="" className="w-full h-full object-cover" />
                                 </button>
@@ -193,65 +193,62 @@ const CruiseDetailsPage = () => {
                     </motion.div>
 
                     {/* Details */}
-                    <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 }} className="space-y-6">
-                        <h1 className="text-3xl md:text-4xl font-serif text-zinc-900 leading-tight">{cruise.title}</h1>
-
-                        {/* Pricing variants */}
-                        <div className="bg-white border border-zinc-100 rounded-2xl p-5 shadow-sm">
-                            <h3 className="text-sm uppercase tracking-wider text-zinc-500 mb-3 font-semibold">Pricing</h3>
-                            <div className="space-y-2">
-                                {cruise.variants.map((v, i) => (
-                                    <div key={i} className="flex justify-between items-center py-1.5 border-b border-zinc-50 last:border-0">
-                                        <span className="text-zinc-700 font-medium">{v.label}</span>
-                                        <span className="text-primary-700 font-bold text-lg">{v.price}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        <p className="text-zinc-600 text-lg leading-relaxed">{cruise.description}</p>
-
-                        {/* Specs */}
-                        <div className="grid grid-cols-2 gap-4">
-                            <div className="bg-white p-4 rounded-xl border border-zinc-100 flex items-center gap-3 shadow-sm">
-                                <Clock className="w-5 h-5 text-primary-600 shrink-0" />
-                                <div>
-                                    <p className="text-xs text-zinc-400">Duration</p>
-                                    <p className="font-semibold text-zinc-900">{cruise.duration}</p>
-                                </div>
-                            </div>
-                            <div className="bg-white p-4 rounded-xl border border-zinc-100 flex items-center gap-3 shadow-sm">
-                                <Users className="w-5 h-5 text-primary-600 shrink-0" />
-                                <div>
-                                    <p className="text-xs text-zinc-400">Capacity</p>
-                                    <p className="font-semibold text-zinc-900">{cruise.capacity}</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Highlights */}
+                    <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 }} className="space-y-8">
                         <div>
-                            <h3 className="text-xl font-serif text-zinc-900 mb-4 flex items-center gap-2">
+                            <h1 className="text-4xl md:text-5xl font-serif text-zinc-900 leading-tight mb-4">{cruise.title}</h1>
+                            <div className="flex flex-wrap gap-4 text-sm text-zinc-600">
+                                <div className="flex items-center gap-1.5 bg-zinc-100 px-3 py-1.5 rounded-full">
+                                    <Clock className="w-4 h-4 text-primary-600" />
+                                    <span className="font-medium">{cruise.duration}</span>
+                                </div>
+                                <div className="flex items-center gap-1.5 bg-zinc-100 px-3 py-1.5 rounded-full">
+                                    <Users className="w-4 h-4 text-primary-600" />
+                                    <span className="font-medium">{cruise.capacity}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Highlights (What to Expect) - Moved up */}
+                        <div className="bg-primary-50 px-6 py-7 rounded-2xl border border-primary-100">
+                            <h3 className="text-xl font-serif text-zinc-900 mb-5 flex items-center gap-2">
                                 <Navigation className="w-5 h-5 text-primary-600" /> What to Expect
                             </h3>
-                            <ul className="space-y-2.5">
+                            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
                                 {cruise.highlights.map((item, idx) => (
-                                    <li key={idx} className="flex items-start gap-3 text-zinc-700">
-                                        <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                                    <li key={idx} className="flex items-start gap-2.5 text-zinc-700 text-sm leading-snug">
+                                        <CheckCircle2 className="w-4 h-4 text-primary-600 shrink-0 mt-0.5" />
                                         <span>{item}</span>
                                     </li>
                                 ))}
                             </ul>
                         </div>
 
-                        <a
-                            href={cruise.bookLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-primary-600 text-white rounded-full font-bold text-lg shadow-lg shadow-primary-600/30 hover:bg-primary-500 hover:-translate-y-1 transition-all"
-                        >
-                            Book Now →
-                        </a>
+                        <p className="text-zinc-600 text-lg leading-relaxed">{cruise.description}</p>
+
+                        {/* Condensed Pricing and Book CTA */}
+                        <div className="bg-white border border-zinc-200 rounded-3xl p-6 shadow-sm flex flex-col sm:flex-row items-center gap-6">
+                            <div className="flex-grow w-full sm:w-auto">
+                                <h3 className="text-xs uppercase tracking-widest text-zinc-400 mb-3 font-bold">Pricing Guide</h3>
+                                <div className="space-y-2">
+                                    {cruise.variants.map((v, i) => (
+                                        <div key={i} className="flex justify-between items-center py-1 border-b border-zinc-50 last:border-0 last:pb-0">
+                                            <span className="text-zinc-600 text-sm">{v.label}</span>
+                                            <span className="text-zinc-900 font-bold">{v.price}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="w-full sm:w-auto shrink-0">
+                                <a
+                                    href={cruise.bookLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-10 py-5 bg-primary-600 text-white rounded-full font-bold text-lg shadow-lg shadow-primary-600/30 hover:bg-primary-500 hover:-translate-y-1 active:scale-95 transition-all"
+                                >
+                                    Book This Cruise
+                                </a>
+                            </div>
+                        </div>
                     </motion.div>
                 </div>
             </div>

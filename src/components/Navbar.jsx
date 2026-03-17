@@ -41,9 +41,9 @@ const Navbar = () => {
                         {/* Glow effect for visibility on light backgrounds */}
                         <div className={`absolute inset-0 bg-black/40 blur-2xl rounded-full transition-opacity duration-300 pointer-events-none ${isScrolled ? 'opacity-100' : 'opacity-0'}`}></div>
                         <img
-                            src="//vaalrivercruises.co.za/cdn/shop/files/Liquid-Lounge-sml_1.png"
+                            src="/src/Liquid-Lounge-sml (2).png"
                             alt="Liquid Lounge Logo"
-                            className="h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105 relative z-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
+                            className="h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105 relative z-10 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]"
                         />
                     </Link>
 

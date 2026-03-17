@@ -4,16 +4,16 @@
   --font-sans: "Inter", system-ui, sans-serif;
   --font-serif: "Playfair Display", Georgia, serif;
   
-  --color-primary-50: #f0fdfa;
-  --color-primary-100: #ccfbf1;
-  --color-primary-200: #99f6e4;
-  --color-primary-300: #5eead4;
-  --color-primary-400: #2dd4bf;
-  --color-primary-500: #14b8a6;
-  --color-primary-600: #0d9488;
-  --color-primary-700: #0f766e;
-  --color-primary-800: #115e59;
-  --color-primary-900: #134e4a;
+  --color-primary-50: #fff9eb;
+  --color-primary-100: #ffeed1;
+  --color-primary-200: #ffd8a1;
+  --color-primary-300: #ffbc66;
+  --color-primary-400: #ff9a33;
+  --color-primary-500: #fb7c0a;
+  --color-primary-600: #ea5f06;
+  --color-primary-700: #c24608;
+  --color-primary-800: #9a380f;
+  --color-primary-900: #7c2f12;
   
   --color-accent-50: #fdf4ff;
   --color-accent-100: #fae8ff;
@@ -28,7 +28,7 @@
 
 @layer base {
   body {
-    @apply bg-zinc-50 text-zinc-900 antialiased;
+    @apply bg-[#fdfcfb] text-zinc-900 antialiased;
     font-family: var(--font-sans);
   }
   
@@ -48,6 +48,6 @@
     @apply bg-black/40 backdrop-blur-md border border-white/10;
   }
   .glass-light {
-    @apply bg-white/70 backdrop-blur-lg border border-white/40 shadow-xl;
+    @apply bg-white/95 backdrop-blur-lg border border-white/40 shadow-xl;
   }
 }
