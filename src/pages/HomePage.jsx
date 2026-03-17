@@ -23,17 +23,18 @@ const HomePage = () => {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 drop-shadow-lg"
                     >
-                        Escape to the <br className="hidden md:block" />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-primary-100 italic font-medium">Vaal River</span>
+                        Discover the <br className="hidden md:block" />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-200 italic font-medium">Vaal River in Luxury</span>
                     </motion.h1>
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
-                        className="text-lg md:text-2xl text-zinc-200 mb-10 max-w-2xl mx-auto font-light"
+                        className="text-lg md:text-2xl text-zinc-200 mb-10 max-w-3xl mx-auto font-light leading-relaxed"
                     >
-                        Experience ultimate luxury on South Africa's finest inland cruises. Join us for an unforgettable journey along the lush shores of Millionaires Bend.
+                        An unforgettable cruise on the Vaal River along the prestigious Millionaires Bend. <br />
+                        Relax, unwind, and experience something truly different.
                     </motion.p>
 
                     <motion.div
