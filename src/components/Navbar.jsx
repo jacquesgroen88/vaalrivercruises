@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Anchor } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import logo from '../Liquid-Lounge-sml (2).png';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +42,7 @@ const Navbar = () => {
                         {/* Glow effect for visibility on light backgrounds */}
                         <div className={`absolute inset-0 bg-black/40 blur-2xl rounded-full transition-opacity duration-300 pointer-events-none ${isScrolled ? 'opacity-100' : 'opacity-0'}`}></div>
                         <img
-                            src="/src/Liquid-Lounge-sml (2).png"
+                            src={logo}
                             alt="Liquid Lounge Logo"
                             className="h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105 relative z-10 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]"
                         />
